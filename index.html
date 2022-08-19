@@ -12,19 +12,21 @@
 <body>
 
 	<div id="highscores"> View Highscores </div>
-	<div> Time: <span class="time"> </span></div>
+	<div class="timeCount"> Time: <span id="time"> </span></div>
+
+<main class="quiz">
 
 	<h1 id="title"> Coding Quiz </h1>
 	<h2> Welcome to the JavaScript Coding Quiz </h2>
 
 	<div class = questions>
-	<ol id="intro">
+	<ol class="intro">
 		<h3>Please see the following rules: </h3>
-		<li> You have 1 minute and 15 seconds to answer the questions</p>
-		<li> If the answer is correct, you will will move to the next question</p>
-		<li> You will be penalized by 10 seconds if you get a wrong answer </p>
-		<li> Highscores history can be accessed on the left top corner </p>
-		<li> When you are ready, please press the "Start Quiz" button below </p>
+		<li> 1. You have 1 minute and 15 seconds to answer the questions</p>
+		<li> 2. If the answer is correct, you will will move to the next question</p>
+		<li> 3. You will be penalized by 10 seconds if you get a wrong answer </p>
+		<li> 3. Highscores history can be accessed on the left top corner </p>
+		<li> 4. When you are ready, please press the "Start Quiz" button below </p>
 	</ol>
 	</div>
 
@@ -33,8 +35,11 @@
 	<div > 
 	<ul class="alternatives">
 		<li id="alternative1"></li>
+		<br>
 		<li id="alternative2"></li>
+		<br>
 		<li id="alternative3"></li>
+		<br>
 		<li id="alternative4"></li>
 	</ul>
 
@@ -43,6 +48,8 @@
 	<br>
 
 	<button id="startQuiz"> Start Quiz </button>
+
+</main>
 
 	
 

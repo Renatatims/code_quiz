@@ -1,6 +1,39 @@
+*{
+    color:purple;
+    
+}
 
+.quiz{
+    text-align:center;
+}
+
+.intro li{
+    text-align: center;
+    list-style: none;
+
+}
 
 .alternatives {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+        
 }
 
+#highscores{
+    text-align: left;
+}
+
+.timeCount {
+    text-align:right;
+    color:red;
+}
+
+.alternatives li {
+    background-color:purple;
+    color:white;
+    width:fit-content;
+    height:auto;
+    border-radius: 0.5rem;
+
+}
