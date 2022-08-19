@@ -1,5 +1,7 @@
 *{
     color:purple;
+    text-align:center;
+    
     
 }
 
@@ -17,6 +19,9 @@
     list-style: none;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    
+    
         
 }
 
@@ -34,6 +39,14 @@
     color:white;
     width:fit-content;
     height:auto;
-    border-radius: 0.5rem;
+    border-radius: 0.2rem;
+    cursor:pointer;
+    justify-content: center;
+    padding: 2px;
+    margin: 5px;
 
+}
+
+#startQuiz {
+    cursor:pointer;
 }

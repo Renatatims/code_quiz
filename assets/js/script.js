@@ -10,26 +10,27 @@ var alternative3 = document.getElementById("alternative3");
 var alternative4 = document.getElementById("alternative4");
 
 
+
 var questions = [
     {question: "Which of the following are JavaScript Data Types?",
-    alternatives: ["a", "b", "c", "d"],
-    correctAnswer: "a",
+    alternatives: ["number", "string", "boolean", "all of the above"],
+    correctAnswer: alternatives[3],
     },
-    {question: "What are all the types of Pop up boxes available in JavaScript?",
-    aleternatives: ["a", "b", "c", "d"],
-    correctAnswer: "b",
+    {question: "How to stop an interval timer in Javascript?",
+    alternatives: ["clearInterval", "clearTimer", "intervalOver", "None of the above"],
+    correctAnswer: alternatives[0],
     },
-    {question: " What is '====' operator? ",
-    aleternatives: ["a", "b", "c", "d"],
-    correctAnswer: "c",
+    {question: " Commonly used data types DO NOT include ",
+    alternatives: ["strings", "booleans", "alerts", "numbers"],
+    correctAnswer: alternatives[2],
     },
     {question: "Arrays in JavaScript can be used to store___",
-    aleternatives: ["a", "b", "c", "d"],
-    correctAnswer: "d",
+    alternatives: ["numbers and strings", "other arrays", "booleans", "All of the above"],
+    correctAnswer: alternatives[3],
     },
     {question: "Which function is used to serialize an object into a JSON string in Javascript?",
-    aleternatives: ["a", "b", "c", "d"],
-    correctAnswer: "e",
+    alternatives: ["stringify()", "parse()", "convert()", "None of the above"],
+    correctAnswer: alternatives[0],
     },
 ];
 
@@ -37,22 +38,35 @@ var questions = [
 var qCounter = 0;
 
 function displayQuestion (){
+    
     questionsEl.textContent = questions[qCounter].question;
-    alternative1.textContent = "1. A";
-    alternative2.textContent = "2. B";
-   alternative3.textContent = "3. C";
-   alternative4.textContent = "4. D";
+    alternative1.textContent = "1. " + questions[qCounter].alternatives[0];
+    alternative2.textContent = "2. " + questions[qCounter].alternatives[1];
+    alternative3.textContent = "3. " + questions[qCounter].alternatives[2];
+    alternative4.textContent = "4. " + questions[qCounter].alternatives[3];
 
 }
 
+var correct = 0;
+var wrong = 0;
+
 alternatives.addEventListener("click", function(event){
+    var userClick = event.target.textContent;
+  
+    if (userClick === questions[qCounter].correctAnswer){
+        correct++;
+    } else{
+        wrong--;
+        secondsLeft = secondsLeft-10;
+    }
     console.log(event);
+
     console.log(event.target.textContent)
   //*check if user clicked the correct answer*/
   /*if the user clicks correct answer - moves to the next question */ 
 /*if wrong - than worng displayed - timer -10 seconds - move to the next question */
 
-qCounter ++;
+qCounter++;
 displayQuestion ();
 
 
