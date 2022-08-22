@@ -27,6 +27,7 @@
 
 #highscores{
     text-align: left;
+    cursor:pointer;
 }
 
 .timeCount {
