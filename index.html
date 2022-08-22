@@ -17,8 +17,10 @@
 <main class="quiz">
 
 	<h1 id="title"> Coding Quiz </h1>
-	<h2> Welcome to the JavaScript Coding Quiz </h2>
+	<h2 id = "totalScore"> Welcome to the JavaScript Coding Quiz </h2>
 
+	<div id ="submitScore"></div>
+		
 	<div class = questions>
 	<ol class="intro">
 		<h3>Please see the following rules: </h3>
@@ -30,24 +32,17 @@
 	</ol>
 	</div>
 
+	<div id = "scoreBoard"></div>
+
 	<br>
-	
-	<div > 
-	<ul class="alternatives">
-		<li id="alternative1"></li>
-		
-		<li id="alternative2"></li>
-		
-		<li id="alternative3"></li>
-		
-		<li id="alternative4"></li>
-
-		<p id = "message"></p>
-	</ul>
-
+	<div>
+	<ul class="alternatives"></ul>
+	<br>
 	</div>
-
-	<br>
+	
+	<div>
+		<p id = "message"></p>
+	</div>
 
 	<button id="startQuiz"> Start Quiz </button>
 

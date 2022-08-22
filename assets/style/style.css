@@ -3,6 +3,7 @@
     text-align:center;
     
     
+    
 }
 
 .quiz{
@@ -10,8 +11,10 @@
 }
 
 .intro li{
-    text-align: center;
+    
     list-style: none;
+    display:flex;
+    justify-content: center;
 
 }
 
@@ -19,8 +22,9 @@
     list-style: none;
     display: flex;
     flex-direction: column;
+    flex-wrap:wrap;
     justify-content: center;
-    
+    margin-left: auto;
     
         
 }
