@@ -35,6 +35,8 @@ var btnGoBack = document.createElement("button");
 var btnClear = document.createElement("button");
 var scoreBoard = document.getElementById ("scoreBoard");
 
+var userScoreBoard = document.getElementById("userScoreBoard");
+
 
 var questions = [
     {question: "Which of the following are JavaScript Data Types?",
@@ -83,7 +85,7 @@ function displayQuestion (){
  submitScore.appendChild(inputName);
  submitScore.appendChild(btnSubmit);
  inputName.addEventListener("click", function (){
-    messageEl.style.display = "none";  
+ messageEl.style.display = "none";  
 })
 
 }};
@@ -160,6 +162,9 @@ highscores.addEventListener ("click", function (){
    
 });
 
+//Once the user clicks the button "Submit" the following actions will occur:
+// Highscores board with user's name and total score.
+
 
 btnSubmit.addEventListener ("click", function (){
     score.textContent = "Highscores";
@@ -168,11 +173,49 @@ btnSubmit.addEventListener ("click", function (){
     submitScore.style.display = "none";
     btnGoBack.textContent = "Go Back";
     btnClear.textContent = "Clear Highscores";
-})
+    var userInputName = inputName.value.trim();
+    localStorage.setItem ("inputName", userInputName);
+    displayScore ();
+});
 
 btnGoBack.addEventListener ("click", function(){
     document.location.reload();
-})
+});
+
+//* Display highScores*//
+
+//*var hscores = [];*/
+
+function displayScore (){
+    
+    var userScore = localStorage.getItem("inputName") + "\n" + totalScore;
+    //*messageTotal.textContent = userScore;*/
+
+    //* Display User's name and score*/
+    userScoreBoard.innerHTML="";
+    var liScores  = document.createElement ("li");
+    liScores.textContent = userScore;
+    userScoreBoard.appendChild(liScores);
+
+
+
+/*
+    for(var i=0; i<hscores; i++){
+        var hscore = hscores[i];
+    }*/
+    
+    //*liScores.push(userScore);*/
+
+    btnClear.addEventListener ("click", function(){
+        userScoreBoard.textContent = " ";
+    });
+
+
+};
+
+
+
+
 
 
 
@@ -199,4 +242,10 @@ function sendMessage (){
 /* End the quiz (DONE!) and provide an input for the USer to insert his name and show the SCORE*/
 
 
+/*Additions - TODO://
 
+/*background to User name and score in the highscores board*/
+/*Clear highscores*/
+/*remove highscores and time from the highscores board*/
+/* view Highscores - click and view lis*/
+/* create an array for highscores*/
