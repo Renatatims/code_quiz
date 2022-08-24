@@ -257,13 +257,28 @@ btnSubmit.addEventListener("click", function (event) {
 });
 
 //call Init function so the name and score can be saved to the Highscores section//
-
 init();
-
+//Go Back Button - refresh to main page
 
 btnGoBack.addEventListener("click", function () {
 	document.location.reload();
 });
+
+// Clear Button
+
+btnClear.addEventListener ("click", function(event) {
+	event.preventDefault();
+	highScoreArray = [];
+	while (userScoreBoard.firstChild){
+		userScoreBoard.removeChild(userScoreBoard.firstChild);
+	}
+	localStorage.clear();
+	
+});
+
+
+
+
 
 
 
