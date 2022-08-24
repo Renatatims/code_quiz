@@ -6,17 +6,25 @@
     
 }
 
+/* viewHighScores El*/
+
+#viewHighscores{
+    text-align: left;
+    cursor:pointer;
+}
+
 .quiz{
     text-align:center;
 }
 
+/*
 .intro li{
-    
     list-style: none;
     display:flex;
     justify-content: center;
 
 }
+*/
 
 .alternatives {
     list-style: none;
@@ -29,10 +37,6 @@
         
 }
 
-#highscores{
-    text-align: left;
-    cursor:pointer;
-}
 
 .timeCount {
     text-align:right;

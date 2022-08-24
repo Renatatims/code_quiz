@@ -11,47 +11,73 @@
 
 <body class="body">
 
-	<div id="highscores"> View Highscores </div>
+	<!--Top Corner Left - View Highscores-->
+	<div id="viewHighscores"> View Highscores </div>
+
+	<!--Top Corner Right - Time Countdown-->
 	<div class="timeCount"> Time: <span id="time"> </span></div>
 
-<main class="quiz">
+	<main class="quiz">
 
-	<h1 id="title"> Coding Quiz </h1>
-	<h2 id = "totalScore"> Welcome to the JavaScript Coding Quiz </h2>
+		<!--Main intro Coding quiz -->
 
-	<div id ="submitScore"></div>
+		<div class="intro">
+
+			<h1 id="title"> JavaScript Coding Quiz </h1>
+
+			<h2>Welcome to the JavaScript Coding Quiz </h2>
+
+			<h3>Please see the following rules: </h3>
+
+			<p> The quiz is timed and you have 1 minute and 15 seconds to answer 5 questions.</p>
+			<p> If the answer is correct, you will will move to the next question.</p>
+			<p> Important: You will be penalized by 10 seconds if you get a wrong answer.</p>
+			<P> When you are ready, please press the "Start Quiz" button below.</p>
+
+		</div>
+		<!--End of Intro-->
+
+		<!--Start Button-->
+
+		<button id="startQuiz"> Start Quiz </button>
+
+		<!--Questions-->
+		<div class=questions></div>
+
+		<!--Alternatives-->
+		<ul class="alternatives"></ul>
+
+		<!--Message "All Done!" when the quiz ends-->
+
+		<div id="quizEnd"></div>
+
+		<!-- Total Score message-->
 		
-	<div class = questions>
-	<ol class="intro">
-		<h3>Please see the following rules: </h3>
-		<li> 1. You have 1 minute and 15 seconds to answer the questions</li>
-		<li> 2. If the answer is correct, you will will move to the next question</li>
-		<li> 3. You will be penalized by 10 seconds if you get a wrong answer </li>
-		<li> 3. Highscores history can be accessed on the left top corner </li>
-		<li> 4. When you are ready, please press the "Start Quiz" button below </li>
-	</ol>
-	</div>
+		<div id="totalScore"> </div>
 
-	<ol id = "userScoreBoard"></ol>
+		<!-- Button to submit Score-->
+		<div id="submitScore"></div>
 
-	<div id = "scoreBoard"></div>
+		<!--Message Correct or Wrong-->
+		<div>
+			<p id="message"></p>
+		</div>	
+
+		<!--Highscores Board-->
+		<ol id="userScoreBoard"></ol>
+		
+		<div id="scoreBoard"></div>
+
+		
+
+		
 	
 
-	<br>
-	<div>
-	<ul class="alternatives"></ul>
-	<br>
-	</div>
-	
-	<div>
-		<p id = "message"></p>
-	</div>
 
-	<button id="startQuiz"> Start Quiz </button>
+		
+	</main>
 
-</main>
 
-	
 
 	<script src="./assets/js/script.js"></script>
 </body>
