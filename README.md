@@ -40,7 +40,7 @@ var userClick = event.target;
 
 
 
-# Functions -
+### Functions -
 
 1. Display Question - questions will be displayed until the user gets to the last one or when the time ends.
 
@@ -58,6 +58,6 @@ var userClick = event.target;
 
 ## Link to application available at:
 
-
+https://github.com/Renatatims/code_quiz
 
 

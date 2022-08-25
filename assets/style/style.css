@@ -69,7 +69,6 @@ header {
 	height: auto;
 	border-radius: 0.2rem;
 	cursor: pointer;
-	justify-content: center;
 	padding: 2px;
 	margin: 5px;
 
@@ -101,14 +100,14 @@ header {
 
 /* HighScores Board*/
 #userScoreBoard {
-	margin-left: 40%;
-	margin-right: 40%;
-	text-align: center;
+	margin-left: 20%;
+	margin-right: 20%;
+	text-align:left;
 	background-color: rgb(238, 221, 240);
 	border-radius: 0.3rem;
 
 }
 
 #userScoreBoard li {
-	text-align: center;
+	text-align: left;
 }
