@@ -78,6 +78,7 @@ var messageTotalEl = document.getElementById("totalScore");
 //User's name Input//
 var submitScoreEl = document.getElementById("submitScore");
 var inputBox = document.createElement("input");
+inputBox.placeholder = "Please enter your initials";
 var btnSubmit = document.createElement("button");
 
 
@@ -141,7 +142,7 @@ alternativesEl.addEventListener("click", function (event) {
 		totalScore = totalScore + 20;
 		messageEl.textContent = "Correct!";
 
-	/*If wrong answer is clicked - than "wrong!" message is displayed and 10 seconds penalty applied in the timer */
+		/*If wrong answer is clicked - than "wrong!" message is displayed and 10 seconds penalty applied in the timer */
 	} else {
 		secondsLeft = secondsLeft - 10;
 		messageEl.textContent = "Wrong!";
@@ -153,7 +154,7 @@ alternativesEl.addEventListener("click", function (event) {
 	/*Moves to the next question*/
 
 	qCounter++;
-	
+
 	displayQuestion();
 
 })
@@ -168,6 +169,7 @@ startButton.addEventListener("click", function () {
 		if (secondsLeft === 0) {
 			clearInterval(timer);
 			timeX.textContent = "Time ended!";
+
 			/* sendMessage();*/
 		} else if (qCounter > 4) {
 			clearInterval(timer);
@@ -183,55 +185,38 @@ startButton.addEventListener("click", function () {
 });
 
 
-/* THINKING - last question
-
-function lastQuestion (){
-		if (qCounter===5){
-				questionsEl.textContent = "Highscore";
-		}
-
-		lastQuestion();
-
-}
-*/
-
-viewHighscoresEl.addEventListener("click", function () {
-	mainEl.textContent = "Total Score = " + totalScore;
-
-});
-
 // Variable to Store User's name + User's score
 var highScoreArray = [];
 
 //	Function Function Display Score //
 
-function displayScore (){
+function displayScore() {
 	userScoreBoard.innerHtml = "";
 	for (var i = 0; i < highScoreArray.length; i++) {
-  var highScoreList = highScoreArray[i];
-	var liScores = document.createElement("li");
-	liScores.textContent = highScoreList;
-	liScores.setAttribute = ("data-index", i)
-	userScoreBoard.appendChild(liScores);
+		var highScoreList = highScoreArray[i];
+		var liScores = document.createElement("li");
+		liScores.textContent = highScoreList;
+		liScores.setAttribute = ("data-index", i)
+		userScoreBoard.appendChild(liScores);
+	};
 
-	}	
-
-}
+};
 
 // Function Init
 function init() {
 	var storedScore = JSON.parse(localStorage.getItem("highScoreArray"));
-	if (storedScore !== null){
+	if (storedScore !== null) {
 		highScoreArray = storedScore
-}
 
-}
+	};
+
+};
 
 // Function saveScore
-function saveScore (){
+function saveScore() {
 	// save this info in the local Storage
 	localStorage.setItem("highScoreArray", JSON.stringify(highScoreArray));
-}
+};
 
 
 // Event Listener to Submit button once it is clicked
@@ -244,37 +229,73 @@ btnSubmit.addEventListener("click", function (event) {
 	submitScoreEl.style.display = "none";
 	btnGoBack.textContent = "Go Back";
 	btnClear.textContent = "Clear Highscores";
-	var inputUserName = inputBox.value.trim() + "\n" + totalScore;
-	if (inputUserName === "" ){
+	var inputUserName = inputBox.value.trim() + ": " + totalScore;
+	if (inputUserName === "") {
 		return;
-	}
+	};
 	highScoreArray.push(inputUserName);
+
 	inputBox.value = "";
 
 	saveScore();
 	displayScore();
-	
+
 });
+
+//*HighScore order from high to low*/
+
+/*THINKING HOW TO SORT
+
+function orderedHighScore (){
+	var highScoreTop = localStorage.getItem("highScoreArray");
+	highScoreTop = JSON.parse(highScoreTop);
+	highScoreTop.sort ((a, b)=> b.inputUserName - a.inputUserName);
+
+highScoreArray.push(highScoreTop);
+
+}
+
+*/
+
 
 //call Init function so the name and score can be saved to the Highscores section//
 init();
+
+//View HighScore - Event Listener - once clicked shows the Highscore list with a "Go Back" and "clear" button. 
+
+viewHighscoresEl.addEventListener("click", function (event) {
+	event.preventDefault();
+	quizEndEl.textContent = "Highscores";
+	introEl.style.display = "none";
+	startButton.style.display = "none";
+	btnGoBack.textContent = "Go Back";
+	btnClear.textContent = "Clear Highscores";
+	scoreBoard.appendChild(btnGoBack);
+	scoreBoard.appendChild(btnClear);
+	displayScore();
+
+});
+
 //Go Back Button - refresh to main page
 
 btnGoBack.addEventListener("click", function () {
 	document.location.reload();
 });
 
-// Clear Button
+// Clear Button - clear's Highscore's Names
 
-btnClear.addEventListener ("click", function(event) {
+btnClear.addEventListener("click", function (event) {
 	event.preventDefault();
 	highScoreArray = [];
-	while (userScoreBoard.firstChild){
+	while (userScoreBoard.firstChild) {
 		userScoreBoard.removeChild(userScoreBoard.firstChild);
 	}
 	localStorage.clear();
-	
+
 });
+
+
+
 
 
 

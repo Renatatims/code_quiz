@@ -5,17 +5,23 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./assets/style/reset.css" />
 	<link rel="stylesheet" href="./assets/style/style.css" />
+
 	<title>Coding Quiz</title>
 </head>
 
 <body class="body">
 
-	<!--Top Corner Left - View Highscores-->
-	<div id="viewHighscores"> View Highscores </div>
+	<header>
 
-	<!--Top Corner Right - Time Countdown-->
-	<div class="timeCount"> Time: <span id="time"> </span></div>
+		<!--Top Corner Left - View Highscores-->
+		<h3 id="viewHighscores"> View Highscores </h3>
+
+		<!--Top Corner Right - Time Countdown-->
+		<h3 class="timeCount"> Time: <span id="time"> </h3>
+
+	</header>
 
 	<main class="quiz">
 
@@ -52,7 +58,7 @@
 		<div id="quizEnd"></div>
 
 		<!-- Total Score message-->
-		
+
 		<div id="totalScore"> </div>
 
 		<!-- Button to submit Score-->
@@ -61,20 +67,15 @@
 		<!--Message Correct or Wrong-->
 		<div>
 			<p id="message"></p>
-		</div>	
+		</div>
 
 		<!--Highscores Board-->
 		<ol id="userScoreBoard"></ol>
-		
+
 		<div id="scoreBoard"></div>
 
-		
-
-		
-	
 
 
-		
 	</main>
 
 

@@ -1,61 +1,107 @@
-*{
-    color:purple;
-    text-align:center;
-    
-    
-    
+/*Html intro*/
+
+:root{
+	--light: rgb(203, 151, 229);
+	--purple: rgb(128, 0, 128);
 }
 
 /* viewHighScores El*/
 
-#viewHighscores{
-    text-align: left;
-    cursor:pointer;
+#viewHighscores {
+	text-align: left;
+	margin: 20px;
+	cursor: pointer;
+	color:var(--purple);
+}
+#viewHighscores:hover{
+	color: var(--light);
 }
 
-.quiz{
-    text-align:center;
+header {
+	display: flex;
+	justify-content: space-between;
 }
-
-/*
-.intro li{
-    list-style: none;
-    display:flex;
-    justify-content: center;
-
-}
-*/
-
-.alternatives {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    flex-wrap:wrap;
-    justify-content: center;
-    margin-left: auto;
-    
-        
-}
-
 
 .timeCount {
-    text-align:right;
-    color:red;
+	text-align: right;
+
 }
 
-.alternatives li {
-    background-color:purple;
-    color:white;
-    width:fit-content;
-    height:auto;
-    border-radius: 0.2rem;
-    cursor:pointer;
-    justify-content: center;
-    padding: 2px;
-    margin: 5px;
-
+.quiz {
+	text-align: center;
 }
 
 #startQuiz {
-    cursor:pointer;
+	cursor: pointer;
+}
+
+#title {
+	color: var(--purple);
+}
+
+
+/* QUestions and Alternatives*/
+
+.questions {
+	display: flex;
+	justify-content: center;
+	font-size: large;
+
+
+}
+
+.alternatives {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	padding-left: 30%;
+	padding-top: 10px;
+	margin: auto;
+
+}
+
+
+.alternatives li {
+	background-color: var(--purple);
+	color: white;
+	width: fit-content;
+	height: auto;
+	border-radius: 0.2rem;
+	cursor: pointer;
+	justify-content: center;
+	padding: 2px;
+	margin: 5px;
+
+}
+
+.alternatives li:hover{
+	background-color: var(--light);
+}
+
+
+/*End of the Quiz*/
+
+#quizEnd {
+	font-size: 25px;
+	padding: 10px;
+}
+
+#totalScore {
+	font-size: 20px;
+	padding:10px;
+}
+
+
+/* HighScores Board*/
+#userScoreBoard {
+	margin-left: 40%;
+	margin-right: 40%;
+	text-align: center;
+	background-color: rgb(238, 221, 240);
+	border-radius: 0.3rem;
+
+}
+
+#userScoreBoard li {
+	text-align: center;
 }
