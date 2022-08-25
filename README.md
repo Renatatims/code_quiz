@@ -58,6 +58,6 @@ var userClick = event.target;
 
 ## Link to application available at:
 
-https://github.com/Renatatims/code_quiz
+https://renatatims.github.io/code_quiz/
 
 
