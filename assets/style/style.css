@@ -24,6 +24,7 @@ header {
 
 .timeCount {
 	text-align: right;
+	font-style: italic;
 
 }
 
@@ -40,7 +41,7 @@ header {
 }
 
 
-/* QUestions and Alternatives*/
+/* Questions and Alternatives*/
 
 .questions {
 	display: flex;
@@ -78,8 +79,14 @@ header {
 	background-color: var(--light);
 }
 
+#message {
+	font-style: italic;
+}
+
 
 /*End of the Quiz*/
+
+
 
 #quizEnd {
 	font-size: 25px;

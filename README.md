@@ -44,7 +44,7 @@ var userClick = event.target;
 
 1. Display Question - questions will be displayed until the user gets to the last one or when the time ends.
 
-2. When the quiz is done, than the user is able to see the final Score and input initials or name so the info can be saved:
+2. Function Quiz End: When the quiz is done, than the user is able to see the final Score and input initials or name so the info can be saved:
 
 ![inputName](./assets/screenshots/QuizEnd.png "Input Name")
 

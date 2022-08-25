@@ -9,22 +9,18 @@ var timeX = document.getElementById("time");
 var secondsLeft = 75;
 
 //variable Main Intro Element - Coding Quiz//
-
 var mainEl = document.querySelector(".quiz");
 
 var introEl = document.querySelector(".intro");
 
 //Variable Start Button //
-
 var startButton = document.getElementById("startQuiz");
 
 //variable Questions Element //
-
 var questionsEl = document.querySelector(".questions");
 
 
 //variable Alternatives Element//
-
 var alternativesEl = document.querySelector(".alternatives");
 
 //Alternatives 1,2,3,4 - created under class "alternatives"//
@@ -34,7 +30,6 @@ var alternative3 = document.createElement("li");
 var alternative4 = document.createElement("li");
 
 //Object Questions  - questions, alternatives and correct Answer for each question //
-
 var questions = [
 	{
 		question: "Which of the following are JavaScript Data Types?",
@@ -65,11 +60,9 @@ var questions = [
 
 
 //Message Variable - Correct or Wrong depending on User's selection//
-
 var messageEl = document.getElementById("message");
 
 //quizEnd Element //
-
 var quizEndEl = document.getElementById("quizEnd");
 
 //Message Total Score Element // 
@@ -81,13 +74,11 @@ var inputBox = document.createElement("input");
 inputBox.placeholder = "Please enter your initials";
 var btnSubmit = document.createElement("button");
 
-
 //Variable Score Board - Display User's name and Scores
+var userScoreBoardEl = document.getElementById("userScoreBoard");
 
-var scoreBoard = document.getElementById("scoreBoard");
-
-
-var userScoreBoard = document.getElementById("userScoreBoard");
+//Variable display go back and clear buttons
+var boardButtonsEl = document.getElementById("boardButtons");
 
 //Button "Go Back" to Start the Quiz again 
 var btnGoBack = document.createElement("button");
@@ -95,10 +86,9 @@ var btnGoBack = document.createElement("button");
 //Button Clear HighScores
 var btnClear = document.createElement("button");
 
-
-
 //Variable for the questions index//
 var qCounter = 0;
+
 
 //Function to display Questions//
 function displayQuestion() {
@@ -114,19 +104,23 @@ function displayQuestion() {
 		alternativesEl.appendChild(alternative4);
 
 	} else {
-		quizEndEl.textContent = "All Done!";
-		messageTotalEl.textContent = "Your Final Score is " + totalScore
-		alternativesEl.style.display = "none";
-		questionsEl.style.display = "none";
-		btnSubmit.textContent = "Submit";
-		submitScoreEl.appendChild(inputBox);
-		submitScoreEl.appendChild(btnSubmit);
-		inputBox.addEventListener("click", function () {
-			messageEl.style.display = "none";
-		})
-
+		quizEndfunction()
 	}
 };
+
+//Function to end Quiz//
+
+function quizEndfunction(){
+	quizEndEl.textContent = "All Done!";
+	messageTotalEl.textContent = "Your Final Score is " + totalScore
+	alternativesEl.style.display = "none";
+	questionsEl.style.display = "none";
+	btnSubmit.textContent = "Submit";
+	submitScoreEl.appendChild(inputBox);
+	submitScoreEl.appendChild(btnSubmit);
+	inputBox.addEventListener("click", function () {
+	messageEl.style.display = "none";})
+	};
 
 //Variable for the User's Total Score. If User gets a correct answer equivalents to 20 points//
 var totalScore = 0;
@@ -169,6 +163,7 @@ startButton.addEventListener("click", function () {
 		if (secondsLeft === 0) {
 			clearInterval(timer);
 			timeX.textContent = "Time ended!";
+			quizEndfunction();
 
 			/* sendMessage();*/
 		} else if (qCounter > 4) {
@@ -191,13 +186,13 @@ var highScoreArray = [];
 //	Function Function Display Score //
 
 function displayScore() {
-	userScoreBoard.innerHtml = "";
+	userScoreBoardEl.innerHtml = "";
 	for (var i = 0; i < highScoreArray.length; i++) {
 		var highScoreList = highScoreArray[i];
 		var liScores = document.createElement("li");
 		liScores.textContent = highScoreList;
 		liScores.setAttribute = ("data-index", i)
-		userScoreBoard.appendChild(liScores);
+		userScoreBoardEl.appendChild(liScores);
 	};
 
 };
@@ -224,8 +219,8 @@ function saveScore() {
 btnSubmit.addEventListener("click", function (event) {
 	event.preventDefault();
 	quizEndEl.textContent = "Highscores";
-	scoreBoard.appendChild(btnGoBack);
-	scoreBoard.appendChild(btnClear);
+	boardButtonsEl.appendChild(btnGoBack);
+	boardButtonsEl.appendChild(btnClear);
 	submitScoreEl.style.display = "none";
 	btnGoBack.textContent = "Go Back";
 	btnClear.textContent = "Clear Highscores";
@@ -242,21 +237,6 @@ btnSubmit.addEventListener("click", function (event) {
 
 });
 
-//*HighScore order from high to low*/
-
-/*THINKING HOW TO SORT
-
-function orderedHighScore (){
-	var highScoreTop = localStorage.getItem("highScoreArray");
-	highScoreTop = JSON.parse(highScoreTop);
-	highScoreTop.sort ((a, b)=> b.inputUserName - a.inputUserName);
-
-highScoreArray.push(highScoreTop);
-
-}
-
-*/
-
 
 //call Init function so the name and score can be saved to the Highscores section//
 init();
@@ -270,8 +250,8 @@ viewHighscoresEl.addEventListener("click", function (event) {
 	startButton.style.display = "none";
 	btnGoBack.textContent = "Go Back";
 	btnClear.textContent = "Clear Highscores";
-	scoreBoard.appendChild(btnGoBack);
-	scoreBoard.appendChild(btnClear);
+	boardButtonsEl.appendChild(btnGoBack);
+	boardButtonsEl.appendChild(btnClear);
 	displayScore();
 
 });
@@ -287,8 +267,8 @@ btnGoBack.addEventListener("click", function () {
 btnClear.addEventListener("click", function (event) {
 	event.preventDefault();
 	highScoreArray = [];
-	while (userScoreBoard.firstChild) {
-		userScoreBoard.removeChild(userScoreBoard.firstChild);
+	while (userScoreBoardEl.firstChild) {
+		userScoreBoardEl.removeChild(userScoreBoardEl.firstChild);
 	}
 	localStorage.clear();
 
